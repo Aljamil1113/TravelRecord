@@ -8,6 +8,11 @@
             <Color x:Key="whiteColor">#FFFFFF </Color>
         </ResourceDictionary>
 
+        <Style x:Key="normalButton" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource blueColor}"></Setter>
+            <Setter Property="TextColor" Value="{StaticResource whiteColor}"></Setter>
+        </Style>
+
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="{StaticResource blueColor}"></Setter>
             <Setter Property="TextColor" Value="{StaticResource whiteColor}" ></Setter>

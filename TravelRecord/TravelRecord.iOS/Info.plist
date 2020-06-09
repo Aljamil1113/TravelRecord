@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Access location to improve experience</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>We need to access your location to improve app experiemce</string>
 </dict>
 </plist>
