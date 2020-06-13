@@ -18,7 +18,6 @@ namespace TravelRecord
 			InitializeComponent ();
 		}
 
-
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
