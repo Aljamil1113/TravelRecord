@@ -4,9 +4,9 @@
              xmlns:local="clr-namespace:TravelRecord"
              x:Class="TravelRecord.HomePage">
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem Text="Add" Clicked="ToolbarItem_Clicked" IconImageSource="add.png"></ToolbarItem>
     </TabbedPage.ToolbarItems>
-    <local:HistoryPage Title="History"></local:HistoryPage>
-    <local:MapPage Title="Map"></local:MapPage>
-    <local:ProfilePage Title="Profile"></local:ProfilePage>
+    <local:HistoryPage Title="History" IconImageSource="home.png"></local:HistoryPage>
+    <local:MapPage Title="Map" IconImageSource="map.png"></local:MapPage>
+    <local:ProfilePage Title="Profile" IconImageSource="user.png"></local:ProfilePage>
 </TabbedPage>
