@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelRecord.Model;
 using Xamarin.Forms;
 
 namespace TravelRecord
@@ -25,13 +27,30 @@ namespace TravelRecord
 
             if(isEmailEmpty || isPasswordEmpty == true)
             {
-
+                DisplayAlert("Empty", "Email or Password are empty!", "Ok");
             }
 
-            else
+            using(SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                Navigation.PushAsync(new HomePage());
-            }
+                var userTable = conn.Table<User>();
+
+                var user = userTable.Where(u => u.Email == emailEntry.Text && u.Password == passwordEnrry.Text).FirstOrDefault();
+
+                if(user != null)
+                {
+                    Navigation.PushAsync(new HomePage());
+                }
+
+                else
+                {
+                    DisplayAlert("Error", "Email or Password does not match!", "Ok");
+                }
+            }       
+        }
+
+        private void registerButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Register());
         }
     }
 }

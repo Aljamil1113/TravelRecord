@@ -23,6 +23,11 @@
         <Button x:Name="buttonLogin" 
                 Text="Log in" Clicked="Login_Clicked"
                 Margin="0,50" ></Button>
+
+        <Button x:Name="registerButton" 
+                Text="Register" Clicked="registerButton_Clicked"
+                Margin="0,50" HorizontalOptions="End">
+        </Button>
     </StackLayout>
 
 </ContentPage>
