@@ -25,7 +25,7 @@ namespace TravelRecord
 
 			using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-				var postTable = conn.Table<Post>().ToList();
+				var postTable = conn.Table<Post>().Where(p => p.UserId == App.user.Id).ToList();
 
 				//var categories = (from p in postTable
 				//				  orderby p.CategoryId

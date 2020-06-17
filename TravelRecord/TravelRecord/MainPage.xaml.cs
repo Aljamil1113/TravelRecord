@@ -38,6 +38,7 @@ namespace TravelRecord
 
                 if(user != null)
                 {
+                    App.user = user;
                     Navigation.PushAsync(new HomePage());
                 }
 

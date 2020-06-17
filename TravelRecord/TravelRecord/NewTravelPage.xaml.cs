@@ -47,7 +47,8 @@ namespace TravelRecord
 					Distance = selectedVenue.location.distance,
 					Latitude = selectedVenue.location.lat,
 					Longitude = selectedVenue.location.lng,
-					VenueName = selectedVenue.name
+					VenueName = selectedVenue.name,
+					UserId = App.user.Id
 				};
 
 				using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))

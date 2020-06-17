@@ -38,7 +38,7 @@ namespace TravelRecord
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
                 conn.CreateTable<Post>();
-                var posts = conn.Table<Post>().ToList();
+                var posts = conn.Table<Post>().Where(p => p.UserId == App.user.Id).ToList();
 
                 DisplayInMap(posts);
             }
