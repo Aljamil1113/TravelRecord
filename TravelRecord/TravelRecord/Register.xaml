@@ -5,13 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TravelRecord.Register">
-      <StackLayout VerticalOptions="Center" Margin="20">
+      <StackLayout VerticalOptions="Center" Margin="20" x:Name="containerStackLayout">
             <!-- Place new controls here -->
             <Entry x:Name="emailEntry"  
                Placeholder="Email Address" 
+               Text="{Binding Email, Mode=TwoWay}"
                Keyboard="Email"
                TextColor="{StaticResource blueColor}"></Entry>
         <Entry x:Name="passwordEntry" 
+               Text="{Binding Password, Mode=TwoWay}"
                Placeholder="Enter Password" 
                IsPassword="True"
                TextColor="{StaticResource blueColor}">

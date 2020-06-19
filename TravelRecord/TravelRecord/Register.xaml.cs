@@ -14,33 +14,20 @@ namespace TravelRecord
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
+        User user;
         public Register()
         {
             InitializeComponent();
+            user = new User();
+            containerStackLayout.BindingContext = user;
         }
 
         private void buttonRegister_Clicked(object sender, EventArgs e)
         {
             if(passwordEntry.Text == confirmPassword.Text)
             {
-
-                User user = new User()
-                {
-                    Email = emailEntry.Text,
-                    Password = passwordEntry.Text
-                };
-
-                using(SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-                {
-                    conn.CreateTable<User>();
-                    int rows = conn.Insert(user);
-
-                    if (rows > 0)
-                        DisplayAlert("Success", "You are successfully registered", "Ok");
-                    else
-                        DisplayAlert("Failure", "You are failed to register", "Ok");
-                }
-
+               User.Register(user);
+               DisplayAlert("Successfull", "You successfully registered!", "Ok");
             }
             else
             {

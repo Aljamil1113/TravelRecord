@@ -8,8 +8,8 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="ExperienceEntry" Placeholder="Write your experience.."></Entry>
+        <StackLayout x:Name="containerStack">
+            <Entry x:Name="ExperienceEntry" Text="{Binding Experience, Mode=TwoWay}" Placeholder="Write your experience.."></Entry>
             <ListView x:Name="venueListView" Margin="20,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>

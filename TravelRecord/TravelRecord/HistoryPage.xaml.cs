@@ -22,13 +22,8 @@ namespace TravelRecord
 		{
 			base.OnAppearing();
 
-			using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-			{
-				conn.CreateTable<Post>();
-				var post = conn.Table<Post>().Where(p => p.UserId == App.user.Id).ToList();
-				postListView.ItemsSource = post;
-				
-			}
+			var posts = Post.Read();
+			postListView.ItemsSource = posts;
 		}
 	}
 }

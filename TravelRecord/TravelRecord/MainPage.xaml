@@ -11,17 +11,21 @@
                HorizontalOptions="FillAndExpand"
                HeightRequest="150"
                Margin="0, 0, 0, 50"></Image>
-        <Entry x:Name="emailEntry"  
+        <Entry x:Name="emailEntry" 
+               Text="{Binding Email, Mode=TwoWay}"
                Placeholder="Email Address" 
                Keyboard="Email"
                TextColor="{StaticResource blueColor}"></Entry>
         <Entry x:Name="passwordEnrry" 
+               Text="{Binding Password, Mode=TwoWay}"
                Placeholder="Enter Password" 
                IsPassword="True"
                TextColor="{StaticResource blueColor}"></Entry>
 
         <Button x:Name="buttonLogin" 
-                Text="Log in" Clicked="Login_Clicked"
+                Text="Log in" 
+                Command="{Binding loginCommand}"
+                CommandParameter="{Binding User}"
                 Margin="0,50" ></Button>
 
         <Button x:Name="registerButton" 
