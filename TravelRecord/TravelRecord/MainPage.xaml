@@ -24,7 +24,7 @@
 
         <Button x:Name="buttonLogin" 
                 Text="Log in" 
-                Command="{Binding loginCommand}"
+                Command="{Binding LoginCommand}"
                 CommandParameter="{Binding User}"
                 Margin="0,50" ></Button>
 

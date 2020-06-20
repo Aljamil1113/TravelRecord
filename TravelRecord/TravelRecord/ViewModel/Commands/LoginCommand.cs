@@ -10,9 +10,9 @@ namespace TravelRecord.ViewModel.Commands
     {
         public MainVM mainVM { get; set; }
 
-        public LoginCommand(MainVM viewModel)
+        public LoginCommand(MainVM ViewModel)
         {
-            mainVM = viewModel;
+            mainVM = ViewModel;
         }
         public event EventHandler CanExecuteChanged;
 
@@ -25,9 +25,8 @@ namespace TravelRecord.ViewModel.Commands
                 return false;
             }
             if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
-            {
                 return false;
-            }
+           
             return true;
         }
 

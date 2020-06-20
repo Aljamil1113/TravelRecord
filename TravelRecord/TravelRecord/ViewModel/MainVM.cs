@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using TravelRecord.Model;
+using TravelRecord.ViewModel.Commands;
 
-namespace TravelRecord.ViewModel.Commands
+namespace TravelRecord.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
-        public LoginCommand loginCommand { get; set; }
+        public LoginCommand LoginCommand { get; set; }
 
         private User user;
         public User User
@@ -31,7 +32,7 @@ namespace TravelRecord.ViewModel.Commands
             set
             {
                 email = value;
-                user = new User
+                User = new User
                 {
                     Email = this.Email,
                     Password = this.Password
@@ -47,7 +48,7 @@ namespace TravelRecord.ViewModel.Commands
             set
             {
                 password = value;
-                user = new User
+                User = new User
                 {
                     Email = this.Email,
                     Password = this.Password
@@ -61,7 +62,7 @@ namespace TravelRecord.ViewModel.Commands
         public MainVM()
         {
             User = new User();
-            loginCommand = new LoginCommand(this);
+            LoginCommand = new LoginCommand(this);
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -71,7 +72,7 @@ namespace TravelRecord.ViewModel.Commands
         }
         public async void Login()
         {
-            bool canLogIn =  User.Login(user.Email, user.Password);
+            bool canLogIn =  User.Login(User.Email, User.Password);
 
             if (canLogIn)
             {

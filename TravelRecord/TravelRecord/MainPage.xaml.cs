@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TravelRecord.Model;
-using TravelRecord.ViewModel.Commands;
+using TravelRecord.ViewModel;
 using Xamarin.Forms;
 
 namespace TravelRecord
@@ -18,28 +18,12 @@ namespace TravelRecord
         {
             InitializeComponent();
 
-            var assembly = typeof(MainPage);
-
             mainVM = new MainVM();
             BindingContext = mainVM;
+
+            var assembly = typeof(MainPage);
             iconImage.Source = ImageSource.FromResource("TravelRecord.Assets.Images.plane.jpg", assembly);
         }
-
-
-        //private void Login_Clicked(object sender, EventArgs e)
-        //{
-        //    bool canLogIn = User.Login(emailEntry.Text, passwordEnrry.Text);
-
-        //    if (canLogIn)
-        //    {
-        //        Navigation.PushAsync(new HomePage());
-        //    }
-
-        //    else
-        //    {
-        //        DisplayAlert("Error", "Email or Password does not match or not exist", "Ok");
-        //    }
-        //}
 
         private void registerButton_Clicked(object sender, EventArgs e)
         {
