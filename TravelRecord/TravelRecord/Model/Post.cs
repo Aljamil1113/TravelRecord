@@ -144,6 +144,20 @@ namespace TravelRecord.Model
             } 
         }
 
+        private DateTimeOffset createdat;
+        public DateTimeOffset CREATEDAT 
+        {
+            get
+            {
+                return createdat;
+            }
+            set
+            {
+                createdat = value;
+                OnPropertyChanged("CREATEDAT");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static void InsertPost(Post post)
