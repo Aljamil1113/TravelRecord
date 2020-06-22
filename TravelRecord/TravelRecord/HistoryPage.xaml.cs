@@ -28,8 +28,20 @@ namespace TravelRecord
 			base.OnAppearing();
 
 			viewModel.UpdatePosts();
-			//var posts = Post.Read();
-			//postListView.ItemsSource = posts;
 		}
-	}
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+			var post = (Post)((MenuItem)sender).CommandParameter;
+		    viewModel.DeletePost(post);
+
+			await viewModel.UpdatePosts();
+        }
+
+        private async void postListView_Refreshing(object sender, EventArgs e)
+        {
+			await viewModel.UpdatePosts();
+			postListView.IsRefreshing = false;
+        }
+    }
 }

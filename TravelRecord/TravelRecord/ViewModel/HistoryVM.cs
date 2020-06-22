@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using TravelRecord.Model;
 
 namespace TravelRecord.ViewModel
@@ -15,14 +16,30 @@ namespace TravelRecord.ViewModel
             Posts = new ObservableCollection<Post>();
         }
 
-        public void UpdatePosts()
+        public async Task<bool> UpdatePosts()
         {
-            Posts.Clear();
-            var posts = Post.Read();
-            foreach (var post in posts)
+            try
             {
-                Posts.Add(post);
+                Posts.Clear();
+                var posts = Post.Read();
+                foreach (var post in posts)
+                {
+                    Posts.Add(post);
+                }
+
+                return true;
             }
+            catch (Exception)
+            {
+
+                return false;
+            }
+           
+        }
+
+        public async void DeletePost(Post postToDelete)
+        {
+            await Post.DeletePost(postToDelete);
         }
     }
 }

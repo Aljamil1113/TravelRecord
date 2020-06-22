@@ -169,6 +169,24 @@ namespace TravelRecord.Model
             }
         }
 
+        public static async Task<bool> DeletePost(Post post)
+        {
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+                {
+                    conn.CreateTable<Post>();
+                    conn.Delete(post);                 
+                }
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+           
+        }
+
         public static List<Post> Read()
         {
             var posts = new List<Post>(); ;
