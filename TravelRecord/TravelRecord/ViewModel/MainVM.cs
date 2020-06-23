@@ -11,6 +11,8 @@ namespace TravelRecord.ViewModel
     {
         public LoginCommand LoginCommand { get; set; }
 
+        public GoToRegisterCommand ToRegister { get; set; }
+
         private User user;
         public User User
         {
@@ -63,6 +65,7 @@ namespace TravelRecord.ViewModel
         {
             User = new User();
             LoginCommand = new LoginCommand(this);
+            ToRegister = new GoToRegisterCommand(this);
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -83,6 +86,11 @@ namespace TravelRecord.ViewModel
             {
                 await App.Current.MainPage.DisplayAlert("Error", "Email or Password does not match or not exist", "Ok");
             }
+        }
+
+        public async void NavigateToRegister()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new Register());
         }
     }
 }

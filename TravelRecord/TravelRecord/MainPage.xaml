@@ -29,7 +29,7 @@
                 Margin="0,50" ></Button>
 
         <Button x:Name="registerButton" 
-                Text="Register" Clicked="registerButton_Clicked"
+                Text="Register" Command="{Binding ToRegister}"
                 Margin="0,50" HorizontalOptions="End">
         </Button>
     </StackLayout>

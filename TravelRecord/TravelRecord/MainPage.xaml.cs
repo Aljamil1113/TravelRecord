@@ -24,10 +24,5 @@ namespace TravelRecord
             var assembly = typeof(MainPage);
             iconImage.Source = ImageSource.FromResource("TravelRecord.Assets.Images.plane.jpg", assembly);
         }
-
-        private void registerButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Register());
-        }
     }
 }
