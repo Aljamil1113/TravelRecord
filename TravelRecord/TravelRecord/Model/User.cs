@@ -12,7 +12,11 @@ namespace TravelRecord.Model
         private int id;
         public int Id {
             get { return id; }
-            set { id = value; OnPropertyChanged("Id"); } 
+            set 
+            { 
+                id = value; 
+                OnPropertyChanged("Id"); 
+            } 
             
         }
 
@@ -31,6 +35,20 @@ namespace TravelRecord.Model
         {
             get { return password;  }
             set { password = value; OnPropertyChanged("Password");  } 
+        }
+
+        private string confirmPassword;
+        public string ConfirmPassword 
+        {
+            get 
+            { 
+                return confirmPassword; 
+            }
+            set
+            {
+                confirmPassword = value;
+                OnPropertyChanged("ConfirmPassword");
+            } 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
